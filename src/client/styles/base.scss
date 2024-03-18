@@ -2,13 +2,32 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
 }
 
 main {
-    flex: 2;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 section {
     max-width: 800px;
     margin: 50px auto;
+
+}
+h1 {
+    font-weight: 700;
+    margin: 0;
+}
+p {
+    font-weight: 300;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
 }

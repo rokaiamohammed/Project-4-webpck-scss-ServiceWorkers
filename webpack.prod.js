@@ -4,8 +4,7 @@ const HtmlWebPackPlugin = require("html-webpack-plugin")
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const WorkboxPlugin = require('workbox-webpack-plugin');
-
+const { GenerateSW } = require("workbox-webpack-plugin");
 module.exports = {
     entry: './src/client/index.js',
     mode: 'production',
@@ -21,7 +20,11 @@ module.exports = {
             {
                 test: '/\.js$/',
                 exclude: /node_modules/,
-                loader: "babel-loader"
+                loader: "babel-loader",
+                options: {
+                    presets: ['@babel/preset-env'],
+                    plugins: ['@babel/plugin-transform-runtime']
+                }
             },
             {
                 test: /\.scss$/,
@@ -35,6 +38,13 @@ module.exports = {
             filename: "./index.html",
         }),
         new MiniCssExtractPlugin({ filename: "[name].css" }),
-        new WorkboxPlugin.GenerateSW()
+        new GenerateSW({
+            clientsClaim: true,
+            skipWaiting: true,
+            runtimeCaching: [{
+              urlPattern: /\//,
+              handler: 'NetworkOnly',
+            },]
+          })
     ]
 }

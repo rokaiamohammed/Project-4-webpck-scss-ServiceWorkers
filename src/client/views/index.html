@@ -1,58 +1,52 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Analyzer</title>
+        <link href="https://fonts.googleapis.com/css2?&family=Roboto:wght@300;500;700&family=Roboto+Slab:wght@300;400;700;800&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/1aac26dbd0.js" crossorigin="anonymous"></script>
+    </head>
 
-<head>
-    <meta charset="utf-8">
-    <title>Test</title>
-    <!-- <link rel="stylesheet" href="/styles/resets.css">
-        <link rel="stylesheet" href="/styles/base.css">
-        <link rel="stylesheet" href="/styles/header.css">
-        <link rel="stylesheet" href="/styles/form.css">
-        <link rel="stylesheet" href="/styles/footer.css"> -->
-</head>
+    <body>
 
-<body>
+        <header>
+            <h1>
+               Sentient Analyzer
+            </h1>
+        </header>
 
-    <header>
-        <div class="">
-            Logo
-        </div>
-        <div class="">
-            navigation
-        </div>
-    </header>
-
-    <main>
-        <section>
-            <form class="" onsubmit="return Client.guessAge(event)">
-                <input id="nameG" type="text" name="input" value="" onblur="onBlur()" placeholder="Name">
-                <input type="submit" name="" value="submit" onclick="return Client.guessAge(event)"
-                    onsubmit="return Client.guessAge(event)">
-            </form>
+        <main>
+            <p>Enter a URL of an article to discover its sentiment.</p>
             <section>
+                <form class="" onsubmit="return Client.Submit(event)">
+                    <input id="url" type="text" name="input" value="" placeholder="Enter URL here">
+                    <input type="submit" name="" value="submit" onclick="return Client.Submit(event)" onsubmit="return Client.Submit(event)">
+                </form>
+            </section>
 
-                <section>
-                    <strong>Form Results:</strong>
-                    <div id="age"></div>
-                </section>
-    </main>
+            <section>
+                <strong>Form Results:</strong>
+                <div id="polarity"></div>
+                <div id="agreement"></div>
+                <div id="subjectivity"></div>
+                <div id="confidence"></div>
+                <div id="irony"></div>
+            </section>
+        </main>
 
-    <footer>
-        <p>This is a footer</p>
-    </footer>
-    <script>
-        // Check that service workers are supported
-        if ('serviceWorker' in navigator) {
-            // Use the window load event to keep the page load performant
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service-worker.js')
-                    .then(function () {
-                        console.log('service worker registered');
-                    });
-            });
-        }
-    </script>
+        <footer>
+            &copy; 2024 Sentient Analyzer
+        </footer>
 
-</body>
-
+        <script>
+            // Check that service workers are supported
+            if ('serviceWorker' in navigator) {
+                // Use the window load event to keep the page load performant
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/service-worker.js');
+                });
+            }
+        </script>
+    </body>
 </html>
