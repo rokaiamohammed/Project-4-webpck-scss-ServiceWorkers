@@ -4,17 +4,19 @@ function Submit(event) {
     // check what text was put into the form field
     let formText = document.getElementById('url').value
 
-    if(Client.URLCheck(formText)) {
+    if (Client.URLCheck(formText)) {
 
-    postData('http://localhost:8081/api', {url: formText})
+        postData('http://localhost:8081/api', { url: formText })
 
-    .then(function(res) {
-        document.getElementById('polarity').innerHTML = 'Polarity: '+polarityChecker(res.score_tag);
-        document.getElementById("agreement").innerHTML = `Agreement: ${res.agreement}`;
-        document.getElementById("subjectivity").innerHTML = `Subjectivity: ${res.subjectivity}`;
-        document.getElementById("confidence").innerHTML = `Confidence: ${res.confidence}`;
-        document.getElementById("irony").innerHTML = `Irony: ${res.irony}`;
-    })
+            .then(function (res) {
+                console.log('inside the function'+res.score_tag)
+
+                document.getElementById('polarity').innerHTML = 'Polarity: ' + polarityChecker(res.score_tag);
+                document.getElementById("agreement").innerHTML = `Agreement: ${res.agreement}`;
+                document.getElementById("subjectivity").innerHTML = `Subjectivity: ${res.subjectivity}`;
+                document.getElementById("confidence").innerHTML = `Confidence: ${res.confidence}`;
+                document.getElementById("irony").innerHTML = `Irony: ${res.irony}`;
+            })
     } else {
         alert('Seems like an invalid URL, please try with a valid URL.');
     }
@@ -27,7 +29,7 @@ const postData = async (url = "", data = {}) => {
         credentials: 'same-origin',
         mode: 'cors',
         headers: {
-        'Content-Type': 'application/json',
+            'Content-Type': 'application/json',
         },
         body: JSON.stringify(data)
     });
@@ -43,14 +45,14 @@ const postData = async (url = "", data = {}) => {
 // API response output (https://www.meaningcloud.com/developer/sentiment-analysis/doc/2.1/response)
 const polarityChecker = (score) => {
     let display;
-    switch (score){
+    switch (score) {
         case 'P+':
             display = 'strong positive';
             break;
         case 'P':
             display = 'positive';
             break;
-        case 'NEW':
+        case 'NEU':
             display = 'neutral';
             break;
         case 'N':

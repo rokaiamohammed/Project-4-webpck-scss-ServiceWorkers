@@ -15,9 +15,9 @@ const apiKey = process.env.API_KEY
 console.log(`Your API key is ${apiKey}`);
 
 
-const core = require('cors');
+const cors = require('cors');
 
-app.use(core());
+app.use(cors());
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json());
@@ -32,10 +32,6 @@ app.get('/', function (req, res) {
 app.listen(8081, function () {
     console.log('Example app listening on port 8081!')
 })
-
-app.get('/test', function (req, res) {
-    res.send(mockAPIResponse)
-})
 app.post('/api', async function(req, res) {
     userInput = req.body.url;
     console.log(`You entered: ${userInput}`);
@@ -44,4 +40,7 @@ app.post('/api', async function(req, res) {
     const mcData = await response.json()
     console.log(mcData)
     res.send(mcData)
+})
+app.get('/test', function (req, res) {
+    res.send(mockAPIResponse)
 })
