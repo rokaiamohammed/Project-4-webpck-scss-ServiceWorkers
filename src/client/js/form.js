@@ -1,6 +1,6 @@
 const { polarityChecker } = require("./polarityChecker");
 
-function Submit(event) {
+const Submit=(event)=> {
     event.preventDefault()
 
     // check what text was put into the form field
@@ -44,4 +44,4 @@ const postData = async (url = "", data = {}) => {
     }
 };
 
-export { Submit }
+module.exports= { Submit }

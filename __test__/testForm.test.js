@@ -1,4 +1,4 @@
-import { Submit } from "../src/client/js/form";
+const { Submit } = require( "../src/client/js/form");
 
 
 
