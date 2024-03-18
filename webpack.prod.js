@@ -29,7 +29,12 @@ module.exports = {
             {
                 test: /\.scss$/,
                 use: [ MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader' ]
-            }
+            },
+            {
+                test: /\.test\.js$/,
+                use: 'mocha-loader', // Use mocha-loader for test files
+                exclude: /node_modules/,
+            },
         ]
     },
     plugins: [

@@ -8,4 +8,4 @@ function URLCheck(inputURL) {
      }
  }
 
- export { URLCheck }
+module.exports = {URLCheck};
