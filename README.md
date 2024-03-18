@@ -24,6 +24,8 @@ Before proceeding, ensure that Node.js and npm are installed on your system. You
 node -v
 npm -v 
 ```
+### make sure that you work and download the dependancies with node version v18.3.0 
+
 Follow these steps to set up the project:
 
 1- Navigate to the project folder
