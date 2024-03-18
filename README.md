@@ -75,3 +75,8 @@ npm run start
 
 8- **Access the Web Tool**: 
 Open your browser and visit http://localhost:8081/.
+
+9- you can test the project and see the output with such as these links og articles:
+- https://www.bbc.com/sport/cricket/68533327
+- https://www.bbc.com/sport/68544181
+- https://www.bbc.com/sport/american-football/68547881
